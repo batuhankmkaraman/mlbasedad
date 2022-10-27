@@ -2,4 +2,4 @@ Machine learning based multi-modal prediction of future decline toward Alzheimer
 
 In this paper, we present an empirical study to characterize how predictable an individual subjects’ future AD trajectory is, several years in advance, based on rich multi-modal data, and using modern deep learning methods. 
 
-The code will be relased in sync with the publication.
+The code will be released in sync with the publication.
