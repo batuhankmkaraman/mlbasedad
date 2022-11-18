@@ -1,1 +1,1 @@
-The code used for testing the models. Will be updated.
+The code used for testing/interpreting the models. Will be updated.
