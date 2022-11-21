@@ -2,7 +2,7 @@ Data preprocessing code for the paper [_Machine learning based multi-modal predi
 
 The raw data file used in preparation of this paper is 'ADNIMERGE.csv', and were obtained from the Alzheimer’s Disease Neuroimaging Initiative (ADNI) database [https://adni.loni.usc.edu](https://adni.loni.usc.edu). Applications for ADNI data use can be submitted through the ADNI website at [https://adni.loni.usc.edu/data samples/accessdata/](https://adni.loni.usc.edu/data-samples/accessdata/). You would be able to access the data in the same manner as us. We did not have any special access privileges that others would not have.
 
-We note that ADNI database, hence 'ADNIMERGE.csv', is updated with the addition of new subjects and follow-up visits almost daily. Therefore, even if you choose the same participant selection method as us, there will be slight differences in subject characteristics, number of available follow-up visits, and missingness. We provide an additional script, 'Analyze.py', for you to analyze your version of 'ADNIMERGE.csv'.
+We note that ADNI database, hence 'ADNIMERGE.csv', is updated with the addition of new subjects and follow-up visits almost daily. Therefore, even if you choose the same participant selection method as us, there will be minor differences in subject characteristics, number of available follow-up visits, and missingness. We provide an additional script, 'Analyze.py', for you to analyze your version of 'ADNIMERGE.csv'.
 
 If you are using our data preprocessing pipeline in whole or in part, please cite:
 
