@@ -1,4 +1,4 @@
-The code used for data preprocessing and splitting.
+The code used for data preprocessing.
 
 The pipeline order is:
   1. DataPreparation.py
