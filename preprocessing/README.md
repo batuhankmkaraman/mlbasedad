@@ -1,5 +1,3 @@
-The code used for data preprocessing.
-
 The pipeline in order is:
   1. DataPreparation.py
   2. ParticipantSelection.py
