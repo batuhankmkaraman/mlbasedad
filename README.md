@@ -1,3 +1,5 @@
 Code for the paper _Machine learning based multi-modal prediction of future decline toward Alzheimer’s disease: An empirical study_
 
 In this paper, we present an empirical study to characterize how predictable individual subjects’ future Alzheimer's Disease trajectory is, several years in advance, based on rich multi-modal data, and using modern deep learning methods. 
+
+Data used in preparation of this article were obtained from the Alzheimer’s Disease Neuroimaging Initiative (ADNI) database [http://adni.loni.usc.edu] (http://adni.loni.usc.edu). Applications for ADNI data use can be submitted through the ADNI website at [https://adni.loni.usc.edu/data samples/accessdata/](https://adni.loni.usc.edu/data-samples/accessdata/). Others would be able to access the data in the same manner as the authors. The authors did not have any special access privileges that others would not have. The investigators within the ADNI contributed to the design and implementation of ADNI and/or provided data but did not participate in analysis or writing of this report.
