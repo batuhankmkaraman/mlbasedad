@@ -5,4 +5,5 @@ The raw data file used in preparation of this paper is 'ADNIMERGE.csv', and were
 We note that ADNI database, hence 'ADNIMERGE.csv', is updated with the addition of new subjects and follow-up visits almost daily. Therefore, even if you choose the same participant selection method as us, there will be slight differences in subject characteristics, number of available follow-up visits, and missingness. We provide an additional script, 'Analyze.py', for you to analyze your version of 'ADNIMERGE.csv'.
 
 If you use our data preprocessing pipeline as a whole or, please cite:
+
 Karaman BK, Mormino EC, Sabuncu MR, for the Alzheimer’s Disease Neuroimaging Initiative (2022) Machine learning based multi-modal prediction of future decline toward Alzheimer’s disease: An empirical study. PLoS ONE 17(11): e0277322. [https://doi.org/10.1371/journal.pone.0277322](https://doi.org/10.1371/journal.pone.0277322) 
