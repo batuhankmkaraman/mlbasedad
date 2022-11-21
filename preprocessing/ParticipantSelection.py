@@ -19,7 +19,8 @@ class ParticipantSelection:
         """
         Read the prepared data.
         """
-        self.df_prepared = pd.read_csv(self.directory_to_read, low_memory=False)
+        self.df = pd.read_csv(self.directory_to_read, low_memory=False)
+        self.df_cols = pd.read_csv(self.directory_to_read, low_memory=False)
 
     def get_baseline_df(self):
         """
@@ -56,7 +57,7 @@ class ParticipantSelection:
     def get_df_trajs(self):
         """
         Get the disease trajectory dataframe for the five-year follow-up horizon.
-        isimpStab and isimpConv are initialized to indicate whether the diagnosis comes from an imputation operation, they are later modified by the imputation functions. The actual imputation operation is performed at a later stage with a different function.
+        isimpStab and isimpConv are initialized to indicate whether the diagnosis comes from a imputation operation. The actual imputation operation is performed at a later stage with a different function.
         Although we implemeted an imputation method for stable subjects, we do not use these imputed visits in our study.
         isimpConv is used to indicate the diagnoses that we impute as we describe in the manuscript.
         """
@@ -174,9 +175,9 @@ class ParticipantSelection:
         Add the TL (trajectory Label) column for each follow-up year. As described in the manuscript, these trajectory labels will be used for determining sample points' weights and also stratified splitting of data into train, validation, and test sets.
         """
         s = [['CN', 'CN'],
-            ['CN', 'MCI'],
-            ['MCI', 'MCI'],
-            ['MCI', 'Dementia']]
+                ['CN', 'MCI'],
+                ['MCI', 'MCI'],
+                ['MCI', 'Dementia']]
         for i in range(len(self.df_x)):
             for year in range(1, 6):
                 pair = list(self.df_x.loc[i, ['DX_0', 'DX_'+str(year)]])
@@ -200,7 +201,6 @@ class ParticipantSelection:
         cols_TrajLabel = ['TL_'+str(z) for z in range(1, 6)]
         df_TrajLabel = pd.DataFrame({'Name':cols_TrajLabel, 'Mod':'TrajLabel'})
         self.df_cols_ps = pd.concat([self.df_cols, df_month, df_fdx, df_isimpStab, df_isimpConv, df_TrajLabel])
-
 
     def write(self):
         """
