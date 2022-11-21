@@ -56,7 +56,7 @@ class ParticipantSelection:
     def get_df_trajs(self):
         """
         Get the disease trajectory dataframe for the five-year follow-up horizon.
-        isimpStab and isimpConv are initialized to indicate whether the diagnosis comes from a imputation operation. The actual imputation operation is performed at a later stage with a different function.
+        isimpStab and isimpConv are initialized to indicate whether the diagnosis comes from an imputation operation, they are later modified by the imputation functions. The actual imputation operation is performed at a later stage with a different function.
         Although we implemeted an imputation method for stable subjects, we do not use these imputed visits in our study.
         isimpConv is used to indicate the diagnoses that we impute as we describe in the manuscript.
         """
