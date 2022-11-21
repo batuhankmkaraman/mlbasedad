@@ -217,7 +217,7 @@ class ParticipantSelection:
     get_df_trajs()
     remove_no_follow_ups()
     remove_cn_to_dementias()
-    impute_stable_trajs()
+    # impute_stable_trajs()
     impute_converter_trajs()
     get_df_ps()
     add_trajectory_labels()
