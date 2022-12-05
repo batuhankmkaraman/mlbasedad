@@ -65,8 +65,8 @@ class StratifiedDataSplitting:
             Saves the updated data of selected participants as df_sds.csv at directory_to_save.
             Save the updated data dictionary as df_cols_sds.csv.
             """
-            self.df.to_csv(self.directory_to_save+'df_prepared.csv', index=False)
-            self.df_cols.to_csv(self.directory_to_save+'df_cols_prepared.csv', index=False)
+            self.df.to_csv(self.directory_to_save+'df_sds.csv', index=False)
+            self.df_cols.to_csv(self.directory_to_save+'df_cols_sds.csv', index=False)
 
         def create_trainvaltest_splits():
             """
