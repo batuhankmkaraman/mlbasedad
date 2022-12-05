@@ -20,7 +20,7 @@ class DataPreparation:
             """
             Read the raw data.
             """
-            self.df_raw = pd.read_csv(self.directory_to_read, low_memory=False)
+            self.df_raw = pd.read_csv(self.directory_to_read+'ADNIMERGE.csv', low_memory=False)
 
         def initialize_df():
             """
@@ -41,7 +41,7 @@ class DataPreparation:
             Fix the terminology in data cells.
             """
             self.df.replace({'Unknown':pd.NA}, inplace=True)
-            self.df.replace({'m0':'bl'}, inplace=True)
+            self.df = self.df[self.df['VISCODE'] != 'm0'].reset_index(drop=True) # There is a single such row and it is empty.
             self.df.replace({'y1':'m12'}, inplace=True)
         
         def convert_csf_to_LowMidHigh():
@@ -179,7 +179,6 @@ class DataPreparation:
             Ensure that columns have the correct python dtype.
             """
             cols = self.df_cols.loc[self.df_cols[column_name]==column_value, 'Name']
-            print(list(self.df.columns))
             self.df[cols] = self.df[cols].astype(new_dtype)
 
         def add_dtype_to_df_cols():
