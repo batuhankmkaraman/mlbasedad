@@ -28,13 +28,25 @@ class DataPreparation:
             """
             self.df = copy.deepcopy(self.df_raw)
 
-        def remove_unwanted_baseline_columns():
+        def get_wanted_columns():
             """
             Remove unwanted baseline columns.
             """
-            unwanted_cols = self.df.columns[60:]
-            unwanted_cols = [z for z in unwanted_cols if z not in ['Month_bl']]
-            self.df = self.df_raw.drop(unwanted_cols, axis=1, inplace=False)
+            # Explicitly state the wanted columns so that the code works for every version of ADNIMERGE.csv
+            wanted_cols = ['RID', 'PTID', 'VISCODE', 'SITE', 'COLPROT', 'ORIGPROT', 
+                           'EXAMDATE', 'DX_bl', 'AGE', 'PTGENDER', 'PTEDUCAT', 'PTETHCAT', 
+                           'PTRACCAT', 'PTMARRY', 'APOE4', 'FDG', 'PIB', 'AV45', 'ABETA', 
+                           'TAU', 'PTAU', 'CDRSB', 'ADAS11', 'ADAS13', 'ADASQ4', 'MMSE', 
+                           'RAVLT_immediate', 'RAVLT_learning', 'RAVLT_forgetting', 
+                           'RAVLT_perc_forgetting', 'LDELTOTAL', 'DIGITSCOR', 'TRABSCOR', 
+                           'FAQ', 'MOCA', 'EcogPtMem', 'EcogPtLang', 'EcogPtVisspat', 
+                           'EcogPtPlan', 'EcogPtOrgan', 'EcogPtDivatt', 'EcogPtTotal', 
+                           'EcogSPMem', 'EcogSPLang', 'EcogSPVisspat', 'EcogSPPlan', 
+                           'EcogSPOrgan', 'EcogSPDivatt', 'EcogSPTotal', 'FLDSTRENG', 
+                           'FSVERSION', 'IMAGEUID', 'Ventricles', 'Hippocampus', 
+                           'WholeBrain', 'Entorhinal', 'Fusiform', 'MidTemp', 
+                           'ICV', 'DX', 'Month_bl']
+            self.df = self.df_raw[wanted_cols]
 
         def fix_terminology():
             """
@@ -206,7 +218,7 @@ class DataPreparation:
         # Apply the methods.
         read()
         initialize_df()
-        remove_unwanted_baseline_columns()
+        get_wanted_columns()
         fix_terminology()
         convert_csf_to_LowMidHigh()
         get_df_cols()
