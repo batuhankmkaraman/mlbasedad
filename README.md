@@ -1,4 +1,5 @@
 # About
+
 Data preprocessing code for the paper [_Machine learning based multi-modal prediction of future decline toward Alzheimer’s disease: An empirical study_](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0277322), where we present an empirical study to characterize how predictable individual subjects’ future Alzheimer's Disease trajectory is, several years in advance, based on rich multi-modal data, and using modern deep learning methods. 
 
 Our preprocessing pipeline consists of several steps. The first step is where we take care of the fundamental misconceptions in the data. In the second step, we extract subjects' disease progression trajectories and perform participant selection. Finally, we split the data into multiple training/validation/test splits in a stratified fashion, since the follow-up diagnosis are unbalanced. Each step has its own '.py' file. 
@@ -7,6 +8,21 @@ The raw data file used in this work is 'ADNIMERGE.csv', and was obtained from th
 
 We note that ADNI database, hence 'ADNIMERGE.csv', is updated with the addition of new subjects and follow-up visits almost daily. Therefore, even if you choose the same participant selection criteria as ours, there will be minor differences in subject characteristics, number of available follow-up visits, and data missingness. We provide an additional script, 'Analyze.py', for you to analyze your version of 'ADNIMERGE.csv'.
 
+# Citation
+
 We encourage researchers to use our preprocessing pipeline for their work, so that we can have a cumulatively growing literature on early prediction of Alzheimer's. We would like our paper to serve as a foundation for others to improve upon. If you are using our code, please cite:
 
-Karaman BK, Mormino EC, Sabuncu MR, for the Alzheimer’s Disease Neuroimaging Initiative (2022) Machine learning based multi-modal prediction of future decline toward Alzheimer’s disease: An empirical study. PLoS ONE 17(11): e0277322. [https://doi.org/10.1371/journal.pone.0277322](https://doi.org/10.1371/journal.pone.0277322) 
+```bash
+@article{karaman_2022_machine,
+  author = {Karaman, Batuhan K. and Mormino, Elizabeth C. and Sabuncu, Mert R.},
+  editor = {Thung, Kim Han},
+  month = {11},
+  pages = {e0277322},
+  title = {Machine learning based multi-modal prediction of future decline toward Alzheimer’s disease: An empirical study},
+  doi = {10.1371/journal.pone.0277322},
+  urldate = {2022-12-02},
+  volume = {17},
+  year = {2022},
+  journal = {PLOS ONE}
+} 
+```
