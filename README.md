@@ -1,3 +1,4 @@
+# About
 Data preprocessing code for the paper [_Machine learning based multi-modal prediction of future decline toward Alzheimer’s disease: An empirical study_](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0277322), where we present an empirical study to characterize how predictable individual subjects’ future Alzheimer's Disease trajectory is, several years in advance, based on rich multi-modal data, and using modern deep learning methods. 
 
 Our preprocessing pipeline consists of several steps. The first step is where we take care of the fundamental misconceptions in the data. In the second step, we extract subjects' disease progression trajectories and perform participant selection. Finally, we split the data into multiple training/validation/test splits in a stratified fashion, since the follow-up diagnosis are unbalanced. Each step has its own '.py' file. 
