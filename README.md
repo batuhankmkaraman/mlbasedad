@@ -45,7 +45,7 @@ python train.py \
 ```
 
 Add command `--write_tensorboard` to save the learning curves to Tensorboard. These hyperparameters are not optimal and can be tuned further as in this figure.
-![tune](figs/s1fig.png)
+![tune](figs/s1fig.pdf)
 
 ## Evaluation
 
@@ -73,7 +73,7 @@ This code was run and tested on an Nvidia TITAN RTX GPU with the following depen
 + python 3.8.16
 + torch 1.12.1+cu102
 + tensorboard 2.11.2
-+ sklearn 0.0.post1
++ scikit-learn 1.2.1
 + pandas 1.5.3
 + numpy 1.24.1
 
