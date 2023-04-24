@@ -10,7 +10,7 @@ We note that ADNI database, hence 'ADNIMERGE.csv', is updated with the addition 
 
 ## Preprocessing
 
-Our preprocessing pipeline consists of several steps. The first step is where we take care of the fundamental misconceptions in the data. In the second and third steps, we extract subjects' disease progression trajectories and perform participant selection. In the forth step, we split the data into multiple training/validation/test splits in a stratified fashion, since the follow-up diagnosis are unbalanced. Finally, we process to the input features (imputation, masking, z-score normalization, etc.). Each step has its own '.py' file.
+Our preprocessing pipeline consists of several steps. The first step is where we take care of the fundamental misconceptions in the data. In the second and third steps, we extract subjects' disease progression trajectories and perform participant selection. In the forth step, we split the data into multiple training/validation/test splits in a stratified fashion, since the follow-up diagnosis are unbalanced. Finally, we process the input features (imputation, masking, z-score normalization, etc.). Each step has its own '.py' file.
 
 Command for preprocessing ADNI data:
 
