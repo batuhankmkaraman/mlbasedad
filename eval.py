@@ -14,7 +14,6 @@ from models.nsm import NSM
 from models.nmm import NMM
 from models.nmm_cross import NMM_cross
 from models.nmm_3layer import NMM_3layer
-from models.nmm_optimized import NMM_optimized
 # Utils
 from utils.metrics import get_roc_aucs, get_roc_curves
 from utils.directory_navigator import DirectoryNavigator
@@ -359,7 +358,6 @@ def main():
         'NMM': NMM,
         'NMM_cross': NMM_cross,
         'NMM_3layer': NMM_3layer,
-        'NMM_optimzed': NMM_optimized,
     }
 
     # Create model
