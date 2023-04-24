@@ -92,7 +92,7 @@ def get_eval_1_roc_auc_results(i_rt, network, dir_navi, args):
     return roc_aucs
 
         
-def get_eval_2_feature_importance_results(i_rt, network, dir_navi, args):
+def get_eval_2_feature_importance_results(i_rt, network, dir_navi, args): #TODO: return non-missing portion
     """
     Ensembles predictions for the test set and computes ROC AUC for different synthetic missingness scenarios.
 
