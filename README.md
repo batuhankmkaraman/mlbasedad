@@ -2,9 +2,9 @@
 
 Data preprocessing code for the paper [_Machine learning based multi-modal prediction of future decline toward Alzheimer’s disease: An empirical study_](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0277322), where we present an empirical study to characterize how predictable individual subjects’ future Alzheimer's Disease trajectory is, several years in advance, based on rich multi-modal data, and using modern deep learning methods.
 
-Our preprocessing pipeline consists of several steps. The first step is where we take care of the fundamental misconceptions in the data. In the second step, we extract subjects' disease progression trajectories and perform participant selection. Finally, we split the data into multiple training/validation/test splits in a stratified fashion, since the follow-up diagnosis are unbalanced. Each step has its own '.py' file.
+![arch](figs/journal.pone.0277322.g001.PNG)
 
-The raw data file used in this work is 'ADNIMERGE.csv', and was obtained from the Alzheimer’s Disease Neuroimaging Initiative (ADNI) database [https://adni.loni.usc.edu](https://adni.loni.usc.edu). Applications for ADNI data use can be submitted through the ADNI website at [https://adni.loni.usc.edu/data samples/accessdata/](https://adni.loni.usc.edu/data-samples/accessdata/). You would be able to access the data in the same manner as us. We did not have any special access privileges that others would not have.
+The raw data files used in this work are 'ADNIMERGE.csv' and 'ADNIMERGE_DICT.csv', and were obtained from the Alzheimer’s Disease Neuroimaging Initiative (ADNI) database [https://adni.loni.usc.edu](https://adni.loni.usc.edu). Applications for ADNI data use can be submitted through the ADNI website at [https://adni.loni.usc.edu/data samples/accessdata/](https://adni.loni.usc.edu/data-samples/accessdata/). You would be able to access the data in the same manner as us. We did not have any special access privileges that others would not have.
 
 We note that ADNI database, hence 'ADNIMERGE.csv', is updated with the addition of new subjects and follow-up visits regularly. Therefore, even if you choose the same participant selection criteria as ours, there will be minor differences in subject characteristics, number of available follow-up visits, and data missingness.
 
@@ -45,7 +45,7 @@ python train.py \
 ```
 
 Add command `--write_tensorboard` to save the learning curves to Tensorboard. These hyperparameters are not optimal and can be tuned further as in this figure.
-![tune](figs/s1fig.pdf)
+![tune](figs/pone.0277322.s003-1.png)
 
 ## Evaluation
 
