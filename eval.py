@@ -230,7 +230,7 @@ class Parser(argparse.ArgumentParser):
                           help='Number of hidden layers')
         self.add_argument('--num_classes', type=int, default=3,
                           help='Number of classes')
-        self.add_argument('--dropout_rate', type=float, default=0.2,
+        self.add_argument('--dropout_rate', type=float, default=0,
                           help='Dropout rate')
 
         self.add_argument('--batch_size', type=int, default=32,
