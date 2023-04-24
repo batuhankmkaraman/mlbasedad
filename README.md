@@ -10,7 +10,7 @@ We note that ADNI database, hence 'ADNIMERGE.csv', is updated with the addition 
 
 # Citation
 
-We encourage researchers to use our preprocessing pipeline for their work, so that we can have a cumulatively growing literature on early prediction of Alzheimer's. We would like our paper to serve as a foundation for others to improve upon. If you are using our code, please cite:
+We encourage researchers to use our preprocessing pipeline for their work, so that we can have a cumulatively growing literature on early prediction of Alzheimer's. We would like our paper to serve as a foundation for others to improve upon. If you use our code, please cite:
 
 ```bash
 @article{karaman_2022_machine,
