@@ -17,8 +17,8 @@ Command for preprocessing ADNI data:
 ```
 python preprocessing.py \
   --path_to_read out / \ # The directory containing the ADNIMERGE_DICT.csv and ADNIMERGE.csv files. 
-  --r_test \ # Desired test set ratio (between 0 and 1)
-  --r_val \ # Desired validation set ratio (between 0 and 1)
+  --r_test 0.2 \ # Desired test set ratio (between 0 and 1)
+  --r_val 0.2 \ # Desired validation set ratio (between 0 and 1)
   --N_RT 200 \ # Number of random train/test splits.
   --N_RV 5 \ # Number of random train/val splis for each train/test split.
   --seed 1337 \ # Seed for random number generation.
@@ -58,8 +58,8 @@ python eval.py \
   --N_RT 200 \ # Number of random train/test splits.
   --N_RV 5 \ # Number of random train/val splis for each train/test split.
   --N_RI 5 \ # Number of random initializations for each train/val split.
-  --root out / \ # Root directory.
-  --model_name NMM \ # Name of the model.
+  --root out 0.2 / \ # Root directory.
+  --model_name NMM 0.2 \ # Name of the model.
   --model_width 128 \ # The model width.
   --model_depth 3 \ # The model depth.
   --batch_size 32 \ # Batch size for training.

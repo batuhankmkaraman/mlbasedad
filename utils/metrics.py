@@ -177,8 +177,8 @@ def get_roc_curve(y_true, y_pred, dx_bl):
     
     if dx_bl == 0:
         # For CN baseline diagnosis, use the probability of MCI diagnosis.
-        y_pred = y_pred[:, 0] 
-        y_true = (y_true == 0).astype(int)
+        y_pred = y_pred[:, 1] 
+        y_true = (y_true == 1).astype(int)
         y_pred = 1 - y_pred
         y_true = 1 - y_true
     if dx_bl == 1:
