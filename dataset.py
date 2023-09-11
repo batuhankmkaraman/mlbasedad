@@ -42,6 +42,9 @@ class ADNI_tabular(torch.utils.data.Dataset):
         missingness_mask = missingness_mask.loc[year_idx].reset_index(drop=True)
         preprocessed_features = preprocessed_features.loc[year_idx].reset_index(drop=True)
         sample_weights = sample_weights.loc[year_idx].reset_index(drop=True)   
+
+        # Scale sample weights.
+        sample_weights *= len(sample_weights) / np.sum(sample_weights)    
         
         # If synthetic missingness is required for inference, it is created below.
         if synthetic_missingness_feats is not None:
