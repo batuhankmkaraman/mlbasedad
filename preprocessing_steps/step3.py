@@ -46,6 +46,7 @@ class Step3:
             return longi_labels, longi_months
         self.longi_labels, self.longi_months = operation(self.df)
         
+        
     def perform_ad_label_imputation(self):
         """
         If a subject is AD at a timepoint, then they are AD for all future timepoints.
@@ -67,9 +68,10 @@ class Step3:
             return longi_labels, longi_months
         self.longi_labels, self.longi_months = operation(self.longi_labels, self.longi_months)
         
+        
     def perform_mci_label_imputation(self):
         """
-        If a CN baseline subject is MCI at a timepoint, then they are MCI for all future timepoints.
+        If a CN baseline subject is MCI at a timepoint, then they are MCI for all future timepoints until they convert to Dementia.
         """
         def operation(longi_labels, longi_months):
             # Label imputation.
@@ -77,7 +79,11 @@ class Step3:
                 if longi_labels.loc[i, 'm0'] == 'CN':
                     if longi_labels.loc[i].isin(['MCI']).any():
                         first_mci_index = list(longi_labels.loc[i, :] == 'MCI').index(True)
-                        longi_labels.iloc[i, first_mci_index:] = 'MCI'
+                        if longi_labels.loc[i].isin(['Dementia']).any():
+                            first_ad_index = list(longi_labels.loc[i, :] == 'Dementia').index(True)
+                        else:
+                            first_ad_index = len(longi_labels.loc[i, :])
+                        longi_labels.iloc[i, first_mci_index:first_ad_index] = 'MCI'
                         
             # Followup month imputation.        
             for col in longi_labels.columns[1:]:
@@ -85,9 +91,10 @@ class Step3:
                 missing_mask = longi_months[col].isnull() & longi_labels[col].notnull()
                 # fill the missing values with the column name
                 longi_months.loc[missing_mask, col] = float(col[1:])
-                
+
             return longi_labels, longi_months
         self.longi_labels, self.longi_months = operation(self.longi_labels, self.longi_months)
+        
                         
     def extract_annual_labels_and_months_up_to_year_n(self, n=5):
         """
@@ -101,6 +108,7 @@ class Step3:
         for year in range(n+1):
             self.longi_labels = self.longi_labels.rename({'m'+str(year*12):'FDX_'+str(year)}, axis=1)
             self.longi_months = self.longi_months.rename({'m'+str(year*12):'FMonth_'+str(year)}, axis=1)
+        
     
     def drop_no_followup_subjects(self):
         """
@@ -116,9 +124,10 @@ class Step3:
             return df_labels, df_months
         self.longi_labels, self.longi_months = operation(self.longi_labels, self.longi_months)
         
+        
     def drop_CN_to_AD_s(self):
         """
-        Drop subjects who converted from CN to Dementia in five years, since they are few in number (n=8).
+        Drop subjects who converted from CN to Dementia in the first five years, since they are few in number.
         """
         def operation(longi_labels, longi_months):
             rids_to_drop = []
@@ -129,6 +138,7 @@ class Step3:
             df_months = longi_months.loc[~longi_labels['RID'].isin(rids_to_drop)].reset_index(drop=True)
             return df_labels, df_months
         self.longi_labels, self.longi_months = operation(self.longi_labels, self.longi_months) 
+        
         
     def add_trajectory_labels(self):
         """
@@ -148,6 +158,7 @@ class Step3:
             return longi_labelss
         self.longi_labels = operation(self.longi_labels)
         
+        
     def drop_subjects_with_very_rare_trajs(self):
         """
         We drop subjects with a TRAJ_LABEL does not occur at least 3 times in the dataset, since we would not be able to stratify such a TRAJ_LABEL to train/val/test splits.
@@ -166,7 +177,8 @@ class Step3:
             for i in range(len(longi_labels)):
                 longi_labels.loc[i, 'TRAJ_LABEL'] = np.where(keys==longi_labels.loc[i, 'TRAJ_LABEL'])[0]
             return longi_labels
-        self.longi_labels = operation(self.longi_labels)      
+        self.longi_labels = operation(self.longi_labels)
+        
         
     def create_the_acquired_df_and_its_dict(self):
         """
@@ -175,6 +187,9 @@ class Step3:
         def operation(df, df_dict, longi_labels, longi_months):
             df = df.loc[df['RID'].isin(longi_labels['RID'])]
             df_bl = df.loc[df['VISCODE']=='bl'].reset_index(drop=True)
+            
+            longi_labels = longi_labels.sort_values('RID').reset_index(drop=True)
+            df_bl = df_bl.sort_values('RID').reset_index(drop=True) 
 
             acquired_df = pd.concat([df_bl, longi_months.iloc[:, 1:], longi_labels.iloc[:, 1:]], axis=1)
 
