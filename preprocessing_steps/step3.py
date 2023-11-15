@@ -189,6 +189,7 @@ class Step3:
             df_bl = df.loc[df['VISCODE']=='bl'].reset_index(drop=True)
             
             longi_labels = longi_labels.sort_values('RID').reset_index(drop=True)
+            longi_months = longi_months.sort_values('RID').reset_index(drop=True)
             df_bl = df_bl.sort_values('RID').reset_index(drop=True) 
 
             acquired_df = pd.concat([df_bl, longi_months.iloc[:, 1:], longi_labels.iloc[:, 1:]], axis=1)
