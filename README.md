@@ -42,7 +42,7 @@ python train.py \
   --weight_decay 1e-6 \ # Weight decay for Adam.
 ```
 
-Add command `--write_tensorboard` to save the learning curves to Tensorboard. The hyperparameters are not optimal and can be tuned further as in this figure.
+Add command `--write_tensorboard` to save the learning curves to Tensorboard. These hyperparameters are not optimal and can be tuned further as in this figure.
 ![tune](figs/pone.0277322.s003-1.png)
 
 ## Evaluation
